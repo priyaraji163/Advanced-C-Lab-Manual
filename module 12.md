@@ -14,18 +14,28 @@ Algorithm:
 7.	Move to the next node using the next pointer.
  
 Program:
+```
+struct Node   
+{  
+char data[100];  
+struct Node *next;  
+}*head;
 
-//type your code here
+void display() {
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%s\n", temp->data);
+        temp = temp->next;
+    }
+}
+```
 
 Output:
 
-//paste your output here
-
+<img width="477" height="473" alt="image" src="https://github.com/user-attachments/assets/e0ca3eee-f004-424a-a429-7fc418219cbc" />
 
 Result:
 Thus, the program to display stack elements using linked list is verified successfully. 
-
-
 
 EXP.NO 27: C PROGRAM TO POP AN ELEMENT FROM THE GIVEN STACK USING 
 LINKED LIST.
@@ -39,14 +49,31 @@ Algorithm:
 4.	Set head to point to the next node in the stack.
  
 Program:
-
-//type your code here
+```
+struct Node   
+{  
+float data;  
+struct Node *next;  
+}*head;  
+void pop(){
+    
+    struct Node *ptr;  
+    if(head==NULL)  
+    {  
+        printf("stack is empty\n");  
+    }  
+    else  
+    {  
+        ptr=head;  
+        head=ptr->next;  
+        free(ptr);  
+    }  
+}
+```
 
 Output:
 
-//paste your output here
-
-
+<img width="1129" height="602" alt="image" src="https://github.com/user-attachments/assets/a00e1aa7-7e26-4e8b-9f4e-4327b478001c" />
 
 Result:
 Thus, the program to pop an element from the given stack using liked list is verified successfully.
@@ -63,17 +90,34 @@ Algorithm:
 5.	End the display function.
  
 Program:
-
-//type your code here
+```
+struct Node
+ {
+   float data;
+   struct Node *next;
+ }*front = NULL, *rear = NULL;
+ void display(){
+    if(front == NULL){
+        printf("queue is empty\n");
+    }
+    else{
+        struct Node *temp = front;
+        printf("queue elements:\n");
+        while(temp != NULL){
+             printf("%.2f\n",temp->data);
+             temp = temp->next;
+        }
+    }
+}
+```
 
 Output:
 
-//paste your output here
+<img width="722" height="657" alt="image" src="https://github.com/user-attachments/assets/63f0ae29-273c-4378-813d-3f17cc566a9d" />
+
 
 Result:
 Thus, the program to display queue elements using linked list is verified successfully.
-
-
  
 EXP NO:29 C PROGRAM TO INSERT ELEMENTS IN QUEUE USING LINKED LIST
 
@@ -89,17 +133,37 @@ Algorithm:
 6.	End of Enqueue Operation
  
 Program:
-
-//type your code here
+```
+ struct Node
+ {
+   float data;
+   struct Node *next;
+ }*front=NULL,*rear=NULL;
+ void enqueue(float data)
+ {
+   struct Node *newNode;
+   newNode=(struct Node*)malloc(sizeof(struct Node));
+   newNode->data=data;
+   newNode->next=NULL;
+   if(front==NULL)
+   {
+      front=rear=newNode;
+   }
+   else
+   {
+      rear->next=newNode;
+      rear=newNode;
+   }
+ }
+```
 
 Output:
 
-//paste your output here
+<img width="715" height="644" alt="image" src="https://github.com/user-attachments/assets/a5f3a8b2-a552-4c16-886e-b9278b83dcb9" />
+
 
 Result:
 Thus, the program to insert elements in queue using linked list is verified successfully.
-
-
 
 EXP NO:30 C FUNCTION TO FIND THE PEEK OF QUEUE USING LINKED LIST.
 
@@ -116,17 +180,23 @@ o	If the queue is empty (i.e., the front pointer is NULL), return an error or a 
 o	If the queue is not empty, return the data stored in the front node of the linked list (i.e., the element at the head of the queue).
 
 Program:
-
-//type your code here
+```
+ struct Node
+ {
+   int data;
+   struct Node *next;
+ }*front=NULL,*rear=NULL;
+ void peek()
+ {
+    printf("%d\n", front->data);
+ }
+```
 
 Output:
 
-//paste your output here
-
+<img width="484" height="674" alt="image" src="https://github.com/user-attachments/assets/d9e7c2ef-1d76-4ab9-8ee3-3d92264f57be" />
 
 
 Result:
 
 Thus, the program to retrieve the "peek" (the front element) of a queue implemented using a linked list is verified successfully.
-
-
