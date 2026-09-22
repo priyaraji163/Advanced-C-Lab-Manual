@@ -15,20 +15,54 @@ Algorithm:
 4.	Exit the program.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    int n;
 
+    printf("Enter a number: ");
+    scanf("%d", &n);
 
+    switch(n) {
+        case 5:
+            printf("seventy one\n");
+            break;
+        case 6:
+            printf("seventy two\n");
+            break;
+        case 7:
+            printf("seventy three\n");
+            break;
+        case 8:
+            printf("seventy four\n");
+            break;
+        case 9:
+            printf("seventy five\n");
+            break;
+        case 10:
+            printf("seventy six\n");
+            break;
+        case 11:
+            printf("seventy seven\n");
+            break;
+        case 12:
+            printf("seventy eight\n");
+            break;
+        case 13:
+            printf("seventy nine\n");
+            break;
+        default:
+            printf("Greater than 13\n");
+    }
 
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="644" height="292" alt="image" src="https://github.com/user-attachments/assets/9b720fd5-1191-4988-9cec-c11e38a7ac1a" />
 
 
 Result:
@@ -46,21 +80,33 @@ Algorithm:
 6.	End
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
-
-
-
+int main() {
+    char a[50];
+    int h = 0, c, i;
+    
+    printf("Enter a string of digits: ");
+    scanf("%s", a);
+    
+    while(h < 10) {
+        c = 0;
+        for(i = 0; a[i] != '\0'; i++) {
+            if(a[i] - '0' == h)
+                c++;
+        }
+        printf("%d ", c);
+        h++;
+    }
+    
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+<img width="637" height="231" alt="image" src="https://github.com/user-attachments/assets/9d7bf144-c1bd-4ffd-8028-561a65150455" />
 
 Result:
 Thus, the program is verified successfully
@@ -83,20 +129,77 @@ Free the memory allocated for each string in s Free the memory allocated for s
 7.	End
  
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-//type your code here
+void swap(char *x, char *y) {
+    char temp[100];
+    strcpy(temp, x);
+    strcpy(x, y);
+    strcpy(y, temp);
+}
 
+void sort(char **s, int n) {
+    int i, j;
+    for (i = 0; i < n - 1; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (strcmp(s[i], s[j]) > 0) {
+                swap(s[i], s[j]);
+            }
+        }
+    }
+}
 
+void permute(char **s, int l, int r) {
+    int i;
+    if (l == r) {
+        for (i = 0; i <= r; i++) {
+            printf("%s ", s[i]);
+        }
+        printf("\n");
+    } else {
+        for (i = l; i <= r; i++) {
+            swap(s[l], s[i]);
+            permute(s, l + 1, r);
+            swap(s[l], s[i]);
+        }
+    }
+}
 
+int main() {
+    int n, i;
+    char **s;
+
+    printf("Enter number of strings: ");
+    scanf("%d", &n);
+
+    s = (char **)malloc(n * sizeof(char *));
+    for (i = 0; i < n; i++) {
+        s[i] = (char *)malloc(100 * sizeof(char));
+    }
+
+    printf("Enter the strings:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%s", s[i]);
+    }
+
+    sort(s, n);
+    permute(s, 0, n - 1);
+
+    for (i = 0; i < n; i++) {
+        free(s[i]);
+    }
+    free(s);
+
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="590" height="466" alt="image" src="https://github.com/user-attachments/assets/a7ffb429-b5b3-4f4d-99ff-99f631c4c7e3" />
 
 
 Result:
@@ -116,21 +219,34 @@ Algorithm:
 7.	End
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
-
-
-
+int main() {
+    int n, i, j, min, len;
+    
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    
+    len = n * 2 - 1;
+    
+    for(i = 0; i < len; i++) {
+        for(j = 0; j < len; j++) {
+            min = i < j ? i : j;
+            min = min < len - i ? min : len - i - 1;
+            min = min < len - j - 1 ? min : len - j - 1;
+            printf("%d ", n - min);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+<img width="564" height="343" alt="image" src="https://github.com/user-attachments/assets/3b4f49f8-c27d-41f0-97f1-fbd942161c89" />
 
 Result:
 Thus, the program is verified successfully
@@ -155,48 +271,27 @@ o	Call the square() function and display the result.
 5.	End.
 
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int square() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    return num * num;
+}
 
-
-
+int main() {
+    int result;
+    result = square();
+    printf("Square of the number = %d\n", result);
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+<img width="587" height="278" alt="image" src="https://github.com/user-attachments/assets/529de9eb-209d-487c-a23c-797065db3457" />
 
 Result:
-Thus, the program is verified successfully
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Thus, the program is verified successfully.
